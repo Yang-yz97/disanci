@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "orderNo": "RK202401120001",
+    "supplierId": 1,
+    "supplierName": "联想科技",
+    "status": "pending",
+    "remark": "测试入库单",
+    "items": [
+      {
+        "id": 1,
+        "productId": 1,
+        "productName": "ThinkPad X1",
+        "quantity": 10,
+        "price": 9999,
+        "total": 99990
+      }
+    ],
+    "totalAmount": 99990,
+    "createTime": "2024-01-12T00:00:00.000Z",
+    "createBy": "admin"
+  }
+]

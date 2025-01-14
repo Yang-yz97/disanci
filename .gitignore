@@ -1,0 +1,35 @@
+# 依赖目录
+node_modules/
+dist/
+
+# 环境文件
+.env
+.env.*
+
+# 编辑器文件
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+
+# 密钥和证书
+ssl/
+secrets/
+
+# 备份文件
+backups/
+
+# 其他
+*.tmp
+*.temp
+.cache/ 
+node_modules

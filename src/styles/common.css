@@ -1,0 +1,75 @@
+/* 添加响应式断点变量 */
+:root {
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+/* 基础响应式布局 */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* 移动端通用样式 */
+@media screen and (max-width: 768px) {
+  /* 调整字体大小 */
+  html {
+    font-size: 14px;
+  }
+
+  /* 隐藏桌面端元素 */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* 显示移动端元素 */
+  .mobile-only {
+    display: block !important;
+  }
+
+  /* 调整表格显示 */
+  .el-table {
+    width: 100% !important;
+    font-size: 12px;
+  }
+
+  /* 调整表单元素 */
+  .el-form-item {
+    margin-bottom: 15px;
+  }
+
+  .el-input,
+  .el-select {
+    width: 100% !important;
+  }
+} 

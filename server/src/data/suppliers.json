@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "code": "GYS001",
+    "name": "联想科技",
+    "contact": "张三",
+    "phone": "13900139000",
+    "status": "active",
+    "remark": "电脑供应商",
+    "createTime": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "code": "GYS002",
+    "name": "惠普科技",
+    "contact": "李四",
+    "phone": "13900139001",
+    "status": "active",
+    "remark": "打印机供应商",
+    "createTime": "2024-01-02T00:00:00.000Z"
+  }
+]

@@ -1,0 +1,104 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 根元素样式 */
+:root {
+    --primary-color: #409EFF;
+    --success-color: #67C23A;
+    --warning-color: #E6A23C;
+    --danger-color: #F56C6C;
+    --info-color: #909399;
+    --text-primary: #303133;
+    --text-regular: #606266;
+    --text-secondary: #909399;
+    --border-color: #DCDFE6;
+    --background-color: #F5F7FA;
+}
+
+/* 布局样式 */
+html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    color: var(--text-primary);
+    background-color: var(--background-color);
+}
+
+#app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 布局组件样式 */
+.layout-container {
+    display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #304156;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.main-container {
+    margin-left: 200px;
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* 头部导航样式 */
+.header {
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* 卡片样式 */
+.card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+
+/* 数据表格样式优化 */
+.el-table {
+    margin-top: 20px;
+}
+
+/* 表单样式优化 */
+.el-form-item {
+    margin-bottom: 22px;
+}
+
+/* 按钮组样式 */
+.button-group {
+    margin: 20px 0;
+}
+
+/* 响应式布局 */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 64px;
+    }
+    .main-container {
+        margin-left: 64px;
+    }
+} 
