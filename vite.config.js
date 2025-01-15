@@ -4,6 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
+  base: '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
@@ -14,14 +15,11 @@ export default defineConfig({
     minify: 'terser',
     cssCodeSplit: true,
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html')
-      },
       output: {
-        format: 'iife',
-        entryFileNames: 'assets/[name].[hash].js',
-        chunkFileNames: 'assets/[name].[hash].js',
-        assetFileNames: 'assets/[name].[hash].[ext]'
+        manualChunks: {
+          'element-plus': ['element-plus'],
+          'vendor': ['vue', 'vue-router', 'vuex']
+        }
       }
     },
     outDir: 'dist',
