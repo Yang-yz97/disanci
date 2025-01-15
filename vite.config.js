@@ -14,15 +14,14 @@ export default defineConfig({
     minify: 'terser',
     cssCodeSplit: true,
     rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      },
       output: {
-        format: 'es',
-        entryFileNames: `assets/[name].[hash].js`,
-        chunkFileNames: `assets/[name].[hash].js`,
-        assetFileNames: `assets/[name].[hash].[ext]`,
-        manualChunks: {
-          'element-plus': ['element-plus'],
-          'vendor': ['vue', 'vue-router', 'vuex']
-        }
+        format: 'iife',
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
       }
     },
     outDir: 'dist',
