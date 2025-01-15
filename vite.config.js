@@ -13,7 +13,7 @@ export default defineConfig({
   build: {
     target: 'es2015',
     minify: 'terser',
-    cssCodeSplit: false,
+    cssCodeSplit: true,
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -24,42 +24,25 @@ export default defineConfig({
             if (id.includes('vue') || id.includes('vuex') || id.includes('vue-router')) {
               return 'vendor';
             }
-            return 'deps'; // 其他依赖
+            return 'deps';
           }
-        },
-        chunkFileNames: 'assets/[name].[hash].js',
-        entryFileNames: 'assets/[name].[hash].js',
-        assetFileNames: (assetInfo) => {
-          const cssPattern = /\.(css|less|sass|scss)$/;
-          const isCSS = cssPattern.test(assetInfo.name);
-          return isCSS
-            ? 'assets/css/[name].[hash][extname]'
-            : 'assets/[name].[hash][extname]';
         }
       }
     },
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
-    sourcemap: false,
-    commonjsOptions: {
-      include: [/node_modules/],
-      transformMixedEsModules: true
-    }
+    sourcemap: false
   },
   css: {
-    postcss: {
-      plugins: []
+    modules: {
+      localsConvention: 'camelCase'
     },
     preprocessorOptions: {
       scss: {
         additionalData: ``
       }
     }
-  },
-  optimizeDeps: {
-    include: ['vue', 'vue-router', 'vuex', 'element-plus'],
-    exclude: []
   },
   server: {
     host: '0.0.0.0',
