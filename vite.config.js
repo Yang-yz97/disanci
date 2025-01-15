@@ -17,25 +17,16 @@ export default defineConfig({
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.')
-          const ext = info[info.length - 1]
-          if (/\.(css)$/i.test(assetInfo.name)) {
-            return `assets/[name].[hash].${ext}`
+          if (assetInfo.name.endsWith('.css')) {
+            return 'assets/css/[name].[hash].[ext]'
           }
-          return `assets/[name].[hash].${ext}`
+          return 'assets/[name].[hash].[ext]'
         },
-        chunkFileNames: 'assets/[name].[hash].js',
-        entryFileNames: 'assets/[name].[hash].js',
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('element-plus')) {
-              return 'element-plus';
-            }
-            if (id.includes('vue') || id.includes('vuex') || id.includes('vue-router')) {
-              return 'vendor';
-            }
-            return 'deps';
-          }
+        chunkFileNames: 'assets/js/[name].[hash].js',
+        entryFileNames: 'assets/js/[name].[hash].js',
+        manualChunks: {
+          'element-plus': ['element-plus'],
+          'vendor': ['vue', 'vue-router', 'vuex']
         }
       }
     },
@@ -47,11 +38,6 @@ export default defineConfig({
   css: {
     modules: {
       localsConvention: 'camelCase'
-    },
-    preprocessorOptions: {
-      scss: {
-        additionalData: ``
-      }
     }
   },
   server: {
