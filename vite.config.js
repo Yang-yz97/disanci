@@ -15,6 +15,10 @@ export default defineConfig({
     cssCodeSplit: true,
     rollupOptions: {
       output: {
+        format: 'es',
+        entryFileNames: `assets/[name].[hash].js`,
+        chunkFileNames: `assets/[name].[hash].js`,
+        assetFileNames: `assets/[name].[hash].[ext]`,
         manualChunks: {
           'element-plus': ['element-plus'],
           'vendor': ['vue', 'vue-router', 'vuex']
