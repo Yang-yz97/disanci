@@ -89,7 +89,7 @@ const getLoginButtonText = computed(() => {
   if (loading.value) return '登录中...'
   if (loginAttempts.value >= maxLoginAttempts) {
     const remainingTime = Math.ceil((lockoutEndTime.value - Date.now()) / 1000)
-    return \`请等待 \${remainingTime} 秒\`
+    return '请等待 ' + remainingTime + ' 秒'
   }
   return '登录'
 })
@@ -165,9 +165,9 @@ const handleLoginFailure = () => {
   
   if (loginAttempts.value >= maxLoginAttempts) {
     lockoutEndTime.value = Date.now() + 5 * 60 * 1000 // 锁定5分钟
-    ElMessage.error(\`登录失败次数过多，账户已被锁定 5 分钟\`)
+    ElMessage.error('登录失败次数过多，账户已被锁定 5 分钟')
   } else {
-    ElMessage.error(\`登录失败，还剩 \${maxLoginAttempts - loginAttempts.value} 次尝试机会\`)
+    ElMessage.error('登录失败，还剩 ' + (maxLoginAttempts - loginAttempts.value) + ' 次尝试机会')
   }
 }
 
