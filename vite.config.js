@@ -16,6 +16,16 @@ export default defineConfig({
     cssCodeSplit: true,
     rollupOptions: {
       output: {
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.')
+          const ext = info[info.length - 1]
+          if (/\.(css)$/i.test(assetInfo.name)) {
+            return `assets/[name].[hash].${ext}`
+          }
+          return `assets/[name].[hash].${ext}`
+        },
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js',
         manualChunks(id) {
           if (id.includes('node_modules')) {
             if (id.includes('element-plus')) {
