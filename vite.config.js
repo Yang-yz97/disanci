@@ -13,7 +13,7 @@ export default defineConfig({
   build: {
     target: 'es2015',
     minify: 'terser',
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -29,7 +29,13 @@ export default defineConfig({
         },
         chunkFileNames: 'assets/[name].[hash].js',
         entryFileNames: 'assets/[name].[hash].js',
-        assetFileNames: 'assets/[name].[hash].[ext]'
+        assetFileNames: (assetInfo) => {
+          const cssPattern = /\.(css|less|sass|scss)$/;
+          const isCSS = cssPattern.test(assetInfo.name);
+          return isCSS
+            ? 'assets/css/[name].[hash][extname]'
+            : 'assets/[name].[hash][extname]';
+        }
       }
     },
     outDir: 'dist',
@@ -39,6 +45,16 @@ export default defineConfig({
     commonjsOptions: {
       include: [/node_modules/],
       transformMixedEsModules: true
+    }
+  },
+  css: {
+    postcss: {
+      plugins: []
+    },
+    preprocessorOptions: {
+      scss: {
+        additionalData: ``
+      }
     }
   },
   optimizeDeps: {
