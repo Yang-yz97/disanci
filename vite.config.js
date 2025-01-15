@@ -18,7 +18,11 @@ export default defineConfig({
         manualChunks: {
           'element-plus': ['element-plus'],
           'vendor': ['vue', 'vue-router', 'vuex']
-        }
+        },
+        format: 'es',
+        entryFileNames: 'assets/[name].[hash].mjs',
+        chunkFileNames: 'assets/[name].[hash].mjs',
+        assetFileNames: 'assets/[name].[hash].[ext]'
       }
     },
     outDir: 'dist',
